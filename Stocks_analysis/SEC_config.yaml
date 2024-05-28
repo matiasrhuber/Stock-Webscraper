@@ -1,0 +1,194 @@
+stocks : [ 'AMD', 'INTC', 'PYPL', 'NVDA', 'CRM', 'SNAP','GOOGL','AAPL','TSLA','AMZN','META']
+years : 
+  start : 2020
+  end : 2023
+
+
+SEC_user_agent : 'matiasrhuber@gmail.com'
+encoding : 'gzip, deflate'
+host : 'www.sec.gov'
+quarters : ['QTR1','QTR2','QTR3','QTR4']
+CIK : '320193'
+params : {'action':'getcompany',
+          'CIK': '789019',
+          'type': '10-k', #optional
+          'dateb': '20190101', #optional
+          #'datea': 20220101, #optional
+          'owner': 'exclude', # default set to exclude
+          'start':'',
+          'output': 'atom',
+          'count': '100' #number of results I want to see default is 40
+          } 
+
+financial_statements_mapping : {
+    "Consolidated Balance Sheets": [
+        "CONSOLIDATED BALANCE SHEETS",
+        "CONDENSED CONSOLIDATED BALANCE SHEETS",
+        "CONSOLIDATED BALANCE SHEETS (UNAUDITED)",
+        "CONDENSED CONSOLIDATED BALANCE SHEETS (UNAUDITED)",
+        "BALANCE SHEET",
+        "STATEMENT OF FINANCIAL POSITION",
+        "CONSOLIDATED STATEMENTS OF FINANCIAL POSITION",
+        "CONSOLIDATED STATEMENTS OF FINANCIAL CONDITION",
+        "CONSOLIDATED STATEMENTS OF POSITION",
+        "FINANCIAL POSITION"
+    ],
+    "Consolidated Statements of Operations": [
+        "CONSOLIDATED STATEMENTS OF OPERATIONS",
+        "CONSOLIDATED STATEMENTS OF OPERATIONS (UNAUDITED)",
+        "CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS",
+        "CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS (UNAUDITED)",
+        "CONSOLIDATED STATEMENTS OF INCOME",
+        "CONDENSED CONSOLIDATED STATEMENTS OF INCOME",
+        "INCOME STATEMENT",
+        "STATEMENT OF EARNINGS",
+        "PROFIT AND LOSS STATEMENT (P&L)",
+        "STATEMENT OF COMPREHENSIVE INCOME",
+        "STATEMENT OF OPERATIONS",
+        "STATEMENT OF INCOME",
+        "EARNINGS STATEMENT",
+        "REVENUE AND EXPENSE STATEMENT",
+        "OPERATING STATEMENT",
+        "STATEMENT OF PROFIT AND LOSS AND OTHER COMPREHENSIVE INCOME",
+        "STATEMENT OF EARNINGS AND RETAINED EARNINGS",
+        "STATEMENT OF INCOME AND EXPENDITURE"
+    ],
+    "Consolidated Statements of Cash Flows": [
+        "CONSOLIDATED STATEMENTS OF CASH FLOWS",
+        "CONSOLIDATED STATEMENTS OF CASH FLOWS (UNAUDITED)",
+        "CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS",
+        "CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS (UNAUDITED)",
+        "CASH FLOW STATEMENT",
+        "STATEMENT OF CASH FLOWS",
+        "STATEMENT OF CHANGES IN CASH",
+        "STATEMENT OF CASH FLOW"
+    ],
+    "Consolidated Statements of Shareholders' Equity": [
+        "CONSOLIDATED STATEMENTS OF SHAREHOLDERS EQUITY",
+        "CONSOLIDATED STATEMENTS OF SHAREHOLDERS' EQUITY",
+        "CONDENSED CONSOLIDATED STATEMENTS OF SHAREHOLDERS' EQUITY",
+        "CONDENSED CONSOLIDATED STATEMENTS OF SHAREHOLDERS' EQUITY (UNAUDITED)",
+        "CONSOLIDATED STATEMENTS OF REDEEMABLE NONCONTROLLING INTEREST AND STOCKHOLDERS' EQUITY (UNAUDITED)",
+        "CONSOLIDATED STATEMENTS OF REDEEMABLE NONCONTROLLING INTEREST AND STOCKHOLDERS' EQUITY",
+        "CONSOLIDATED STATEMENTS OF STOCKHOLDERS' EQUITY",
+        "CONSOLIDATED STATEMENTS OF STOCKHOLDERS' EQUITY (DEFICIT)",
+        "CONDENSED STATEMENTS OF SHAREHOLDERS' EQUITY",
+        "CONDENSED CONSOLIDATED STATEMENTS OF STOCKHOLDERS' DEFICIT",
+        "CONDENSED CONSOLIDATED STATEMENTS OF STOCKHOLDERS' EQUITY (DEFICIT)",
+        "STATEMENT OF SHAREHOLDERS' EQUITY",
+        "STOCKHOLDERS' EQUITY",
+        "SHAREHOLDERS' EQUITY STATEMENT",
+        "EQUITY STATEMENT",
+        "SHAREHOLDERS' EQUITY"
+    ]
+}
+
+# financial_statements_mapping : {
+#     "Consolidated Balance Sheets": [
+#         "Consolidated Balance Sheets",
+#         "CONSOLIDATED BALANCE SHEETS",
+#         "Condensed Consolidated Balance Sheets",
+#         "CONDENSED CONSOLIDATED BALANCE SHEETS",
+#         "Consolidated Balance Sheets (Unaudited)",
+#         "CONSOLIDATED BALANCE SHEETS (Unaudited)",
+#         "Condensed Consolidated Balance Sheets (Unaudited)",
+#         "CONDENSED CONSOLIDATED BALANCE SHEETS (Unaudited)",
+#         "Balance Sheet",
+#         "BALANCE SHEET",
+#         "Statement of Financial Position",
+#         "STATEMENT OF FINANCIAL POSITION",
+#         "Consolidated Statements of Financial Position",
+#         "CONSOLIDATED STATEMENTS OF FINANCIAL POSITION",
+#         "Consolidated Statements of Financial Condition",
+#         "CONSOLIDATED STATEMENTS OF FINANCIAL CONDITION",
+#         "Consolidated Statements of Position",
+#         "CONSOLIDATED STATEMENTS OF POSITION",
+#         "Financial Position",
+#         "FINANCIAL POSITION"
+#     ],
+#     "Consolidated Statements of Operations": [
+#         "Consolidated Statements of Operations",
+#         "CONSOLIDATED STATEMENTS OF OPERATIONS",
+#         "Consolidated Statements Of Operations",
+#         "Consolidated Statements of Operations (Unaudited)",
+#         "CONSOLIDATED STATEMENTS OF OPERATIONS (Unaudited)",
+#         "Condensed Consolidated Statements of Operations",
+#         "CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS",
+#         "Condensed Consolidated Statements of Operations (Unaudited)",
+#         "CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS (Unaudited)",
+#         "Consolidated Statements of Income",
+#         "CONSOLIDATED STATEMENTS OF INCOME",
+#         "Condensed Consolidated Statements of Income",
+#         "CONDENSED CONSOLIDATED STATEMENTS OF INCOME",
+#         "Income Statement",
+#         "INCOME STATEMENT",
+#         "Statement of Earnings",
+#         "STATEMENT OF EARNINGS",
+#         "Profit and Loss Statement (P&L)",
+#         "PROFIT AND LOSS STATEMENT (P&L)",
+#         "Statement of Comprehensive Income",
+#         "STATEMENT OF COMPREHENSIVE INCOME",
+#         "Statement of Operations",
+#         "STATEMENT OF OPERATIONS",
+#         "Statement of Income",
+#         "STATEMENT OF INCOME",
+#         "Earnings Statement",
+#         "EARNINGS STATEMENT",
+#         "Revenue and Expense Statement",
+#         "REVENUE AND EXPENSE STATEMENT",
+#         "Operating Statement",
+#         "OPERATING STATEMENT",
+#         "Statement of Profit and Loss and Other Comprehensive Income",
+#         "STATEMENT OF PROFIT AND LOSS AND OTHER COMPREHENSIVE INCOME",
+#         "Statement of Earnings and Retained Earnings",
+#         "STATEMENT OF EARNINGS AND RETAINED EARNINGS",
+#         "Statement of Income and Expenditure",
+#         "STATEMENT OF INCOME AND EXPENDITURE"
+#     ],
+#     "Consolidated Statements of Cash Flows": [
+#         "Consolidated Statements of Cash Flows",
+#         "CONSOLIDATED STATEMENTS OF CASH FLOWS",
+#         "Consolidated Statements of Cash Flows (Unaudited)",
+#         "CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS (Unaudited)",
+#         "Condensed Consolidated Statements of Cash Flows",
+#         "CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS",
+#         "Cash Flow Statement",
+#         "CASH FLOW STATEMENT",
+#         "Statement of Cash Flows",
+#         "STATEMENT OF CASH FLOWS",
+#         "Statement of Changes in Cash",
+#         "STATEMENT OF CHANGES IN CASH",
+#         "Statement of Cash Flow",
+#         "STATEMENT OF CASH FLOW"
+#     ],
+#     "Consolidated Statements of Shareholders' Equity": [
+#         "Consolidated Statements of Shareholders' Equity",
+#         "CONSOLIDATED STATEMENTS OF SHAREHOLDERS' EQUITY",
+#         "Condensed Consolidated Statements of Shareholders' Equity (Unaudited)",
+#         "CONDENSED CONSOLIDATED STATEMENTS OF SHAREHOLDERS' EQUITY (Unaudited)",
+#         "Consolidated Statements of Redeemable Noncontrolling Interest and Stockholders' Equity (Unaudited)",
+#         "CONSOLIDATED STATEMENTS OF REDEEMABLE NONCONTROLLING INTEREST AND STOCKHOLDERS' EQUITY (Unaudited)",
+#         "Consolidated Statements of Redeemable Noncontrolling Interest and Stockholders' Equity",
+#         "CONSOLIDATED STATEMENTS OF REDEEMABLE NONCONTROLLING INTEREST AND STOCKHOLDERS' EQUITY",
+#         "Consolidated Statements of Stockholders' Equity",
+#         "CONSOLIDATED STATEMENTS OF STOCKHOLDERS' EQUITY",
+#         "Consolidated Statements of Stockholders' Equity (Deficit)",
+#         "CONSOLIDATED STATEMENTS OF STOCKHOLDERS' EQUITY (DEFICIT)",
+#         "Condensed Statements of Shareholders' Equity",
+#         "CONDENSED STATEMENTS OF SHAREHOLDERS' EQUITY",
+#         "Condensed Consolidated Statements of Stockholders' Deficit",
+#         "CONDENSED CONSOLIDATED STATEMENTS OF STOCKHOLDERS' DEFICIT",
+#         "Condensed Consolidated Statements of Stockholders' Equity (Deficit)",
+#         "CONDENSED CONSOLIDATED STATEMENTS OF STOCKHOLDERS' EQUITY (DEFICIT)",
+#         "Statement of Shareholders' Equity",
+#         "STATEMENT OF SHAREHOLDERS' EQUITY",
+#         "Shareholders' Equity Statement",
+#         "STOCKHOLDERS' EQUITY",
+#         "Stockholders' Equity",
+#         "SHAREHOLDERS' EQUITY STATEMENT",
+#         "Equity Statement",
+#         "EQUITY STATEMENT",
+#         "Shareholders' Equity",
+#         "SHAREHOLDERS' EQUITY"
+        
+#     ]}
