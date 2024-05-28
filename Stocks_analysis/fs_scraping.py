@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 ### PARAMETERS ###
 with open("SEC_config.yaml") as f:
-    cfg = yaml.load(f)
+    cfg = yaml.safe_load(f)
 
 
 SEC_user_agent = cfg['SEC_user_agent']

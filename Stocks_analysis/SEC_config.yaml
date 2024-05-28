@@ -1,7 +1,7 @@
-stocks : [ 'AMD', 'INTC', 'PYPL', 'NVDA', 'CRM', 'SNAP','GOOGL','AAPL','TSLA','AMZN','META']
+stocks : ['AAPL'] #[ 'AMD', 'INTC', 'PYPL', 'NVDA', 'CRM', 'SNAP','GOOGL','AAPL','TSLA','AMZN','META']
 years : 
-  start : 2020
-  end : 2023
+  start : 2019
+  end : 2024
 
 
 SEC_user_agent : 'matiasrhuber@gmail.com'
@@ -21,7 +21,7 @@ params : {'action':'getcompany',
           } 
 
 financial_statements_mapping : {
-    "Consolidated Balance Sheets": [
+    "balance_sheet": [
         "CONSOLIDATED BALANCE SHEETS",
         "CONDENSED CONSOLIDATED BALANCE SHEETS",
         "CONSOLIDATED BALANCE SHEETS (UNAUDITED)",
@@ -33,7 +33,7 @@ financial_statements_mapping : {
         "CONSOLIDATED STATEMENTS OF POSITION",
         "FINANCIAL POSITION"
     ],
-    "Consolidated Statements of Operations": [
+    "statement_of_operations": [
         "CONSOLIDATED STATEMENTS OF OPERATIONS",
         "CONSOLIDATED STATEMENTS OF OPERATIONS (UNAUDITED)",
         "CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS",
@@ -53,7 +53,7 @@ financial_statements_mapping : {
         "STATEMENT OF EARNINGS AND RETAINED EARNINGS",
         "STATEMENT OF INCOME AND EXPENDITURE"
     ],
-    "Consolidated Statements of Cash Flows": [
+    "cash_flow_statements": [
         "CONSOLIDATED STATEMENTS OF CASH FLOWS",
         "CONSOLIDATED STATEMENTS OF CASH FLOWS (UNAUDITED)",
         "CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS",
@@ -63,7 +63,7 @@ financial_statements_mapping : {
         "STATEMENT OF CHANGES IN CASH",
         "STATEMENT OF CASH FLOW"
     ],
-    "Consolidated Statements of Shareholders' Equity": [
+    "shareholder_equity": [
         "CONSOLIDATED STATEMENTS OF SHAREHOLDERS EQUITY",
         "CONSOLIDATED STATEMENTS OF SHAREHOLDERS' EQUITY",
         "CONDENSED CONSOLIDATED STATEMENTS OF SHAREHOLDERS' EQUITY",

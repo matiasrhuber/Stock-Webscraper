@@ -6,7 +6,7 @@ from IPython.display import display
 
 ### PARAMETERS ###
 with open("SEC_config.yaml") as f:
-    cfg = yaml.load(f)
+    cfg = yaml.safe_load(f)
 
 years = range(cfg['years']['start'],cfg['years']['end'])
 stocks = cfg['stocks']
@@ -18,10 +18,13 @@ folder = 'SEC'
 
 def get_key(val):
    
-    for key, value in financial_statements_mapping.items():
-        if val == value:
-            return key
- 
+    for key, values in financial_statements_mapping.items():
+        for value in values:
+            if val.upper() == value:
+                return key
+    print(val.upper())
+    raise ValueError
+    
     return "key doesn't exist"
 
 # Grab the proper components
@@ -50,7 +53,7 @@ for stock in stocks:
             print(f'running {data}')
         for i in range(4):
             header_title = statements_data[i]['headers'][0][0].split(' - USD')[0]
-            file_title = header_title#[k for k,v in financial_statements_mapping.items() if v == header_title] #get_key(header_title)
+            file_title = get_key(header_title)#[k for k,v in financial_statements_mapping.items() if v == header_title] #get_key(header_title)
 
             if len(statements_data[i]['headers']) != 1:
                 subheaders = statements_data[i]['headers'][1]
@@ -99,7 +102,7 @@ for stock in stocks:
                 os.mkdir(folder_dir)
             except:
                 print(f'Saving over data for {stock} in {file_year} {file_quarter}...')
-            income_df.to_csv(os.path.join(folder_dir,'tabular_data',f"{file_title+file_year+file_quarter+file_type}.csv"))
+            income_df.to_csv(os.path.join(folder_dir,'tabular_data',f"{file_title+'_'+file_year+file_quarter+file_type}.csv"))
 
 print(error_ls)
 print(f'Data Unable to save in tabular form: {len(error_ls)}')
